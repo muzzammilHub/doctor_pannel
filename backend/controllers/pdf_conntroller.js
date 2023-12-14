@@ -1,15 +1,23 @@
 const nodemailer = require('nodemailer');
-const env = require("../config/environment");
 
 // Nodemailer configuration (replace with your own SMTP details)
-const transporter = nodemailer.createTransport(env.smtp);
+const transporter = nodemailer.createTransport(
+  {
+    host: process.env.HOST,
+    port: process.env.EMAIL_PORT,
+    auth: {
+        user: process.env.EMAIL,
+        pass: process.env.PASS,
+    },
+    service: process.env.SERVICE 
+  }
+);
 
 const sendPdfByEmail = async(req, res) => {
   const email = req.query.email
-  console.log(email)
+  
   const pdf = req.file;
 
-  console.log("*************")
 
   if (!pdf) {
     return res.status(400).json({
@@ -19,7 +27,7 @@ const sendPdfByEmail = async(req, res) => {
   }
 
   const mailOptions = {
-    from: env.email,
+    from: process.env.EMAIL,
     to: email,
     subject: 'E-Prescription',
     text: 'Your Prescription',
@@ -33,13 +41,13 @@ const sendPdfByEmail = async(req, res) => {
 
   try {
     const info = await transporter.sendMail(mailOptions);
-    console.log('Email sent:', info.response);
+    
     res.status(201).json({
         success: true,
         message: 'Email sent successfully'
     });
   } catch (error) {
-    console.error('Error sending email:', error);
+    
     res.status(500).send('Error sending email');
   }
 };

@@ -1,5 +1,5 @@
 // importing necessary modules
-require('dotenv').config({path: 'config/config.env'})
+require('dotenv').config({path: './.env'})
 const express = require("express")
 const app = express();
 const cookieParser = require('cookie-parser')
