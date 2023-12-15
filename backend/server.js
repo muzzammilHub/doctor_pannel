@@ -1,7 +1,7 @@
 const app = require('./index')
-const {connectDatabase} = require('./config/mongoose')
+const {connectDB} = require('./config/mongoose')
 
-connectDatabase()
+connectDB()
 
 
 app.listen(process.env.PORT, ()=>{
