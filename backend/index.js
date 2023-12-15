@@ -3,16 +3,10 @@ require('dotenv').config({path: './.env'})
 const express = require("express")
 const app = express();
 const cookieParser = require('cookie-parser')
-const cors = require('cors')
 const multer = require('multer')
-const imageUpload = require('./config/multerImage')
-const path = require('path')
 
 //using middleware
-app.use(cors({
-    origin: 'http://localhost:3000',
-    credentials: true,
-  }));
+
 app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true}))

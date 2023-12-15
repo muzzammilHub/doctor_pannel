@@ -34,13 +34,13 @@ const SignUp = () => {
     
     try {
 
-        const {data} = await axios.post('http://localhost:4000/api/v1/register', formData)
+        const {data} = await axios.post('/api/v1/register', formData)
 
         console.log('*********',data)
 
         const {email} = data.newUser;
 
-        await axios.post(`http://localhost:4000/api/v1/image?email=${email}`, formFile)
+        await axios.post(`/api/v1/image?email=${email}`, formFile)
         
     } catch (error) {
         console.log('Error: ', error)

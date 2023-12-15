@@ -27,7 +27,7 @@ const Appointment = ()=>{
 
         try {
 
-          const data1 = await axios.post("http://localhost:4000/api/v1/patient/register",{name, age, state, district,gender, contactNumber, aadhaar, email},{
+          const data1 = await axios.post("/api/v1/patient/register",{name, age, state, district,gender, contactNumber, aadhaar, email},{
             headers:{
               Authorization: `Bearer ${localStorage.getItem('authToken')}`
             }
@@ -49,7 +49,7 @@ const Appointment = ()=>{
 
           if(data1.data.success){
 
-          const data2 = await axios.post(`http://localhost:4000/api/v1/appointment/${id}`, {appointmentDate, appointmentTime},{
+          const data2 = await axios.post(`/api/v1/appointment/${id}`, {appointmentDate, appointmentTime},{
             headers:{
               Authorization: `Bearer ${localStorage.getItem('authToken')}`
             }

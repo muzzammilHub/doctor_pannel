@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export const loadPatient = ()=> async(dispatch)=>{
     try {
-        const {data} = await axios.get('http://localhost:4000/api/v1/allPatient',{
+        const {data} = await axios.get('/api/v1/allPatient',{
             headers:{
                 Authorization: `Bearer ${localStorage.getItem('authToken')}`
             }
@@ -17,7 +17,7 @@ export const loadPatient = ()=> async(dispatch)=>{
 
 export const loadMedicalInfo = (id)=> async(dispatch)=>{
     try {
-        const {data} = await axios.get(`http://localhost:4000/api/v1/getHistory?id=${id}`,{
+        const {data} = await axios.get(`/api/v1/getHistory?id=${id}`,{
             headers:{
                 Authorization: `Bearer ${localStorage.getItem('authToken')}`
             }
