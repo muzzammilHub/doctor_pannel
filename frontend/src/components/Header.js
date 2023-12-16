@@ -10,7 +10,7 @@ const Header = () => {
 
   const handleClick = async()=>{
     try {
-      const {data} = await axios.get('/api/v1/logout',{
+      const {data} = await axios.get('https://backend-app-n7as.onrender.com/api/v1/logout',{
         headers:{
           Authorization: `Bearer ${localStorage.getItem('authToken')}`
         }

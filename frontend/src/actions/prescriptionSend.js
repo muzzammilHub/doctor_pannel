@@ -21,7 +21,7 @@ const generatePdfFromContent = (contentElement, pdfFileName, email)=> async(disp
     const formData = new FormData();
     formData.append('pdf', pdfBlob, pdfFileName);
 
-    axios.post(`/api/v1/pdf-send?email=${email}`, formData, {
+    axios.post(`https://backend-app-n7as.onrender.com/api/v1/pdf-send?email=${email}`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
         Authorization: `Bearer ${localStorage.getItem('authToken')}`

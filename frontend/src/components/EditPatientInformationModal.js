@@ -51,7 +51,7 @@ const EditPatientInformationModal = ({ isOpen, onClose, selectedPatient }) => {
       
       try {
 
-        const data1 = await axios.post("/api/v1/patient/register",formData,{
+        const data1 = await axios.post("https://backend-app-n7as.onrender.com/api/v1/patient/register",formData,{
           headers:{
             Authorization: `Bearer ${localStorage.getItem('authToken')}`
           }
@@ -73,7 +73,7 @@ const EditPatientInformationModal = ({ isOpen, onClose, selectedPatient }) => {
 
         if(data1.data.success){
 
-        const data2 = await axios.post(`/api/v1/appointment/${id}`, formData,{
+        const data2 = await axios.post(`https://backend-app-n7as.onrender.com/api/v1/appointment/${id}`, formData,{
           headers:{
             Authorization: `Bearer ${localStorage.getItem('authToken')}`
           }

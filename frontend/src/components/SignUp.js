@@ -35,14 +35,14 @@ const SignUp = () => {
     
     try {
 
-        const {data} = await axios.post('/api/v1/register', formData)
+        const {data} = await axios.post('https://backend-app-n7as.onrender.com/api/v1/register', formData)
 
         console.log('*********',data)
 
         const {email} = data.newUser;
         
         if(file)
-          await axios.post(`/api/v1/image?email=${email}`, formFile)
+          await axios.post(`https://backend-app-n7as.onrender.com/api/v1/image?email=${email}`, formFile)
 
         if(data){
           navigate('/login')
