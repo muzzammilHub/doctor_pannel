@@ -16,7 +16,6 @@ exports.registerUser = async (req, res)=>{
         // check for user already exists or not
         let existingUser = await User.findOne({email: email})
 
-
         if(existingUser){
             return res.status(400).json({
                 success: true,
@@ -62,6 +61,8 @@ exports.login = async (req, res)=>{
             email,
             password,
         } = req.body
+
+        console.log("**********", email, password)
 
         const user = await User.findOne({email: email}).select('+password')
 

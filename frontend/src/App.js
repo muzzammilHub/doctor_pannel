@@ -11,10 +11,12 @@ import Prescription from "./components/Prescription"
 import { loadPatient } from "./actions/patient"
 import Admin from "./components/Admin"
 import PatientMedicalInfo from "./components/PatientMedicalInfo"
+import ProtectedRoute from "./components/ProtectedRoute"
 
 
 function App() {
   const dispatch = useDispatch()
+  const token  = localStorage.getItem("authToken")
 
   useEffect(()=>{
       dispatch(loadUser())
@@ -24,15 +26,15 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-        <Route path="/login" element={<Login/>}></Route>
+        <Route path="/login" element={!token ? <Login/>: <Home/>}></Route>
         <Route>
-          <Route path="/" element={<Home/>}></Route>
-          <Route path="/register" element={<SignUp/>}></Route>
-          <Route path="/appointment" element={<Appointment/>}></Route>
-          <Route path="/patient" element={<Patient/>}></Route>
-          <Route path="/prescription/:id" element={<Prescription/>}></Route>
-          <Route path="/admin" element={<Admin/>}></Route>
-          <Route path="/patientmedicalinfo/:id" element={<PatientMedicalInfo/>}></Route>
+          <Route path="/" element={<ProtectedRoute Component={Home}/>}></Route>
+          <Route path="/register" element={!token ? <SignUp/>: <Home/>}></Route>
+          <Route path="/appointment" element={<ProtectedRoute Component={Appointment}/>}></Route>
+          <Route path="/patient" element={<ProtectedRoute Component={Patient}/>}></Route>
+          <Route path="/prescription/:id" element={<ProtectedRoute Component={Prescription}/>}></Route>
+          <Route path="/admin" element={<ProtectedRoute Component={Admin}/>}></Route>
+          <Route path="/patientmedicalinfo/:id" element={<ProtectedRoute Component={PatientMedicalInfo}/>}></Route>
         </Route>
         </Routes>
       </BrowserRouter>

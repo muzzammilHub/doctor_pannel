@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
+
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -14,6 +17,7 @@ const SignUp = () => {
 
   const [file, setFile] = useState(null)
 
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -24,13 +28,10 @@ const SignUp = () => {
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log(file)
+    e.preventDefault()
+
     const formFile = new FormData()
     formFile.append("avatar", file);
-    // console.log('formdata: ', formData)
-    // formFile.append("formData", formData);
-    // console.log(formFile["avatar"])
     
     try {
 
@@ -39,8 +40,13 @@ const SignUp = () => {
         console.log('*********',data)
 
         const {email} = data.newUser;
+        
+        if(file)
+          await axios.post(`/api/v1/image?email=${email}`, formFile)
 
-        await axios.post(`/api/v1/image?email=${email}`, formFile)
+        if(data){
+          navigate('/login')
+        }
         
     } catch (error) {
         console.log('Error: ', error)

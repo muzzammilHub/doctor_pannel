@@ -20,6 +20,7 @@
     "react-redux": "^8.1.2",
     "react-router-dom": "^6.16.0",
     "react-scripts": "5.0.1",
+    "react-toastify": "^9.1.3",
     "redux-devtools-extension": "^2.13.9",
     "tailwind-scrollbar-hide": "^1.1.7",
     "web-vitals": "^2.1.4"
@@ -51,5 +52,5 @@
   "devDependencies": {
     "tailwindcss": "^3.3.3"
   },
-  "proxy": "https://full-stack-app-mbx6.onrender.com"
+  "proxy": "http://127.0.0.1:4000"
 }
