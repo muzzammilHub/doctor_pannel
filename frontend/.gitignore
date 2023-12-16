@@ -5,7 +5,6 @@
 /.pnp
 .pnp.js
 /public/uploads
-/tailwind.config.js
 /package-lock.json
 
 # testing
