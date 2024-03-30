@@ -71,10 +71,15 @@ const Login = () => {
               Login
             </button>
           </div>
+          <div className="mb-2 mt-4">
+            <p>Testing email: <span className=' font-semibold text-red-500'>mhussain@mh.com</span></p>
+            <p>Testing password: <span className='font-semibold text-red-500'>pqrst12</span></p>
+          </div>
         </form>
         <div className='mt-4'>
             <p>New to this portal? <Link className=' text-indigo-700 font-semibold hover:text-indigo-500' to='/register'>Register</Link></p>
         </div>
+        
       </div>
     </div>
   );

@@ -30,7 +30,7 @@ const Header = () => {
   return (
 
     <div className="flex justify-between items-center py-4 px-6 bg-blue-500 text-white">
-      <div className="text-2xl font-bold"><Link to='/'>DocHub</Link></div>
+      <div className="text-2xl font-bold"><Link to='/'>DocPortal</Link></div>
       <div className="flex space-x-6 items-center">
         <Link
           to={'/appointment'}

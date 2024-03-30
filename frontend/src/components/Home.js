@@ -18,8 +18,8 @@ const Home = () => {
       <Header/>
       <div className=' bg-blue-300 h-96 flex justify-center items-center rounded-b-[28%]'>
         <div className='w-[50%]'>
-          <p className='ml-20 text-4xl font-semibold'><span className=' font-extrabold text-blue-600 font-serif'>Welcome to Doc Hub:</span> Your Comprehensive Doctor Portal</p>
-          <p className='ml-20 mt-3 w-[32rem]'>Make the transition to an efficient and streamlined healthcare practice. Join Doc Hub and experience a new era of patient care management.</p>
+          <p className='ml-20 text-4xl font-semibold'><span className=' font-extrabold text-blue-600 font-serif'>Welcome to DocPortal:</span> Your Comprehensive Doctor Portal</p>
+          <p className='ml-20 mt-3 w-[32rem]'>Make the transition to an efficient and streamlined healthcare practice. Join DocPortal and experience a new era of patient care management.</p>
         </div>
         <div className='w-[50%]'>
           <img className='h-[21.8rem] mt-[2.1rem] ml-40' src='https://www.freepnglogos.com/uploads/doctor-png/doctor-bulk-billing-doctors-chapel-hill-health-care-medical-3.png'></img>

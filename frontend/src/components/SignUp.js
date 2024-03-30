@@ -32,6 +32,8 @@ const SignUp = () => {
 
     const formFile = new FormData()
     formFile.append("avatar", file);
+
+    console.log("$$$$$$$$$$$$$",formFile)
     
     try {
 
